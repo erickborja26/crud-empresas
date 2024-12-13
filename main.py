@@ -1,0 +1,11 @@
+import os
+from time import sleep
+from lib_empresas import *
+
+### RUBRICA DE CALIFICACION
+### MENU DE OPCIONES 2 PUNTOS
+### REGISTRAR 5 PUNTOS
+### MOSTRAR 3 PUNTOS
+### ACTUALIZAR 5 PUNTOS
+### ELIMINAR 3 PUNTOS
+### GRABAR EN ARCHIVO DE TEXTO 4 PUNTOS
