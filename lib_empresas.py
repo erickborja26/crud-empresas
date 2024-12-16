@@ -1,5 +1,7 @@
+from tabulate import tabulate
 
 dic_empresas={}
+TABLE_STYLE= "fancy_grid"
 
 def cargar_empresas(file_name):
     file= open(file_name, 'r')
@@ -26,18 +28,16 @@ def grabar_empresas(file_name):
     
 
 def menu():
-    print("""GESTIÓN DE EMPRESAS
-          [1] REGISTRAR EMPRESA
-          [2] MOSTRAR EMPRESA
-          [3] ACTUALIZAR EMPRESA
-          [4] ELIMINAR EMPRESA
-          [5] SALIR
-          """)
+    menu_main= [["[1] REGISTRAR EMPRESA"],
+                ["[2] MOSTRAR EMPRESAS"],
+                ["[3] ACTUALIZAR EMPRESA"],
+                ["[4] ELIMINAR EMPRESA"],
+                ["[5] SALIR"]]
+    print(tabulate(menu_main, headers=["GESTION DE EMPRESAS"], tablefmt= TABLE_STYLE))
 
 def mostrar_mensaje(texto):
-    print("*"*50)
-    print(""*10+ texto)
-    print("*"*50)
+    tabla = [[texto]]
+    print(tabulate(tabla, tablefmt=TABLE_STYLE, stralign= "center"))
 
 def registrar():
     mostrar_mensaje("[1] REGISTRAR EMPRESA")
@@ -54,11 +54,10 @@ def registrar():
 
 def mostrar():
     mostrar_mensaje("[2] MOSTRAR EMPRESAS")
+    data= []
     for ruc,valor in dic_empresas.items():
-        print(f"RUC : {ruc}")
-        print(f"RAZON SOCIAL : {valor['razon social']}")
-        print(f"DIRECCION : {valor['direccion']}")
-        print("*"*50)
+        data.append([ruc, valor['razon social'], valor['direccion']])
+    print(tabulate(data, headers= ["RUC","RAZON SOCIAL","DIRECCION"], tablefmt=TABLE_STYLE))
 
 def actualizar():
     mostrar_mensaje("[3] ACTUALIZAR EMPRESA")
