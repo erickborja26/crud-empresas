@@ -9,3 +9,25 @@ from lib_empresas import *
 ### ACTUALIZAR 5 PUNTOS
 ### ELIMINAR 3 PUNTOS
 ### GRABAR EN ARCHIVO DE TEXTO 4 PUNTOS
+opcion= 0
+
+while(opcion<5):
+    os.system("clear")
+    menu()
+    opcion= int(input("INGRESE LA OPCION: "))
+    os.system("clear")
+    if opcion==1:
+        registrar()
+    elif opcion==2:
+        mostrar()
+        print("presione enter para continuar ...")
+    elif opcion==3:
+        actualizar()
+    elif opcion==4:
+        eliminar()
+    elif opcion==5:
+        mostrar_mensaje("[5] SALIR")
+    else:
+        mostrar_mensaje("OPCION INCORRECTA!!!")
+    sleep(1)
+    
