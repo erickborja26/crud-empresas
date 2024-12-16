@@ -1,6 +1,30 @@
 
 dic_empresas={}
 
+def cargar_empresas(file_name):
+    file= open(file_name, 'r')
+    str_empresas = file.read()
+    file.close()
+    lista_empresas= str_empresas.splitlines()
+    for str_fila in lista_empresas:
+        lista_fila = str_fila.split(',')
+        dic_empresa_cargar = {
+            lista_fila[0]: {
+                'razon social' : lista_fila[1],
+                'direccion' : lista_fila[2]
+            }
+        }
+        dic_empresas.update(dic_empresa_cargar)
+        
+def grabar_empresas(file_name):
+    str_empresas = ""
+    for ruc, valor in dic_empresas.items():
+        str_empresas += ruc +","+ valor['razon social']+","+valor['direccion']+"\n"
+    file= open(file_name, 'w')
+    file.write(str_empresas)
+    file.close()
+    
+
 def menu():
     print("""GESTIÓN DE EMPRESAS
           [1] REGISTRAR EMPRESA

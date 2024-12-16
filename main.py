@@ -10,6 +10,7 @@ from lib_empresas import *
 ### ELIMINAR 3 PUNTOS
 ### GRABAR EN ARCHIVO DE TEXTO 4 PUNTOS
 opcion= 0
+cargar_empresas("empresas.txt")
 
 while(opcion<5):
     os.system("clear")
@@ -20,14 +21,14 @@ while(opcion<5):
         registrar()
     elif opcion==2:
         mostrar()
-        print("presione enter para continuar ...")
     elif opcion==3:
         actualizar()
     elif opcion==4:
         eliminar()
     elif opcion==5:
         mostrar_mensaje("[5] SALIR")
+        grabar_empresas("empresas.txt")
     else:
         mostrar_mensaje("OPCION INCORRECTA!!!")
-    sleep(1)
+    sleep(2)
     
